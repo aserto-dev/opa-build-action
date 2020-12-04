@@ -1,0 +1,21 @@
+name: "OPA Build"
+description: "Create OPA bundle file"
+author: "Gert Drapers - Aserto.com"
+branding:
+  icon: box
+  color: orange
+inputs:
+  source:
+    description: "filepath to build input source"
+    required: true
+    default: ./src
+  target:
+    description: "filepath to build output"
+    required: true
+    default: ./build/bundle.tar.gz
+  options:
+    description: "build options"
+    required: false
+runs:
+  using: docker
+  image: Dockerfile
