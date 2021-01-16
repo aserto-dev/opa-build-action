@@ -12,13 +12,11 @@ dst=$INPUT_TARGET
 mkdir -p ${INPUT_TARGET%/*}
 
 cwd=$PWD
-cmd="/opa build . --bundle --output $cwd/$dst $opt"
+cmd="cd $src && /opa build . --bundle --output $cwd/$dst $opt && cd $cwd"
 
 e_code=0
-cd $src
 echo "exec $cmd"
 printf "\n"
 eval "$cmd" || e_code=1
-cd $cwd
 
 exit $e_code
